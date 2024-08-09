@@ -1,0 +1,282 @@
+[
+    {
+        "taxonomy_id": "02691156",
+        "taxonomy_name": "airplane",
+        "test": [
+            "e431f79ac9f0266bca677733d59db4df",
+            "bb9ba5deec9e2a5fca8607f540cc62ba",
+            "2c16ac865f06542381598514fe928082",
+            "2a05d684eeb9c1cfae2ca9bb680dd18b",
+            "ec879d7360572a5db65bd29086fc2a67"
+        ],
+        "train": [
+            "5fed73635306ad9f14ac58bc87dcf2c2",
+            "dc03e743739c4f87c27f2d9f006d69eb",
+            "5739574537212a72b3f2b01de37c0b29",
+            "9d230551c65af968b207f792ce9b3f25",
+            "e08402fb1e5953a2a93f0f952e72609",
+            "93a635370616538abc0909d98a1ff2b4",
+            "b95510fb88096a208fc2d09ac4aa4e78",
+            "63ca41783e5d41f1651e8da9cf70afea"
+        ],
+        "val": [
+            "999539f6290b7072ca2bd098b9203af",
+            "a1ca5014ee1048081e06124bec25a766",
+            "fb402a36e91ab1b44e7761521d3c6953",
+            "19ff8fce1658f864ca8607f540cc62ba",
+            "cc23974115a8de15d13ef00338ba8c52",
+            "313758cb2eacbb576d3e60add9f0d715"
+        ]
+    },
+    {
+        "taxonomy_id": "02933112",
+        "taxonomy_name": "cabinet",
+        "test": [
+            "76fa5df01e82242c684b7bc3f8a9aa55",
+            "9e53d5b34c4b403841b765d3dbd065f7",
+            "c7c782fd5976ed7214038d588fd1342f",
+            "c8631f63ec5899a4a84a884e8267301c",
+            "4acadee1dadac64e4b8710a3469971b1",
+            "14c527e2b76f8942c59350d819542ec7",
+            "47e09607098c43b5768049e7324c832a",
+            "9a2c9e5bda713668674056261e8e6523"
+        ],
+        "train": [
+            "7664b9208a84674926a555721514c9d0",
+            "7822a30ec2e5c57f59f8e31ca87c470e",
+            "a593528259cf4d78c0f947750540fb22",
+            "fdf32559c6b7a6643fe047712e43e185",
+            "365b6a92fc2f46294da5feafe6f1c8fc",
+            "cc198051642f31029a88326b888756d7",
+            "695002fbea3c5e4a9a6b496c6e9f4c2",
+            "6c7a2ca9ef6cf7a3ef4e42d70375aed8",
+            "7f6d01dfa00872a26cf87f8460db3ae0"
+        ],
+        "val": [
+            "8093937b9072e92afab6e40cce6926d7",
+            "594128786d7aacf26f2c2a3461eaa93",
+            "cb84d931a90fbb8e91ea3afb2749822f",
+            "85b82499e3ce7aea3a5893ad04c930a0",
+            "3d8183c2f6c0003bc59350d819542ec7",
+            "b64d237b3718134b6e5b9257c4084ca2",
+            "7b98e7b25bb83413c59350d819542ec7",
+            "7b927d55b634c4aa178e7d331e641179"
+        ]
+    },
+    {
+        "taxonomy_id": "02958343",
+        "taxonomy_name": "car",
+        "test": [
+            "79763b6b5eb6cfe8c805dfe4ca9f2fdb",
+            "3a5df1c214322cd4a5f6e4975dafe8b5",
+            "5f148a8b824ed7e72a9eb0f146e94477",
+            "40fefeff52cee19372414b50cf5a981c",
+            "af0d0eebd57c8cdfaed1820f7f890326",
+            "6a2f939e549e3bbecbd583099e67e928",
+            "9a58eccb0ab51d2fa790ab932daff416",
+            "2ba7ea78b9b6e2a6b420256a03f575c0"
+        ],
+        "train": [
+            "354274e1c27653a318d9ca1acf6633f6",
+            "bc8714a1b8e1a88525ca48e6a6faa909",
+            "34412b56217de1112b12ea83455b0f44",
+            "d0d6ed4d20e338fd3dfdd0a4b0d02ee6",
+            "817af749a088a1312a1f5a561f970b3b",
+            "9c06490e82e122093f599d94ae17ce2b",
+            "8e463dc041332a54facd9c6adf773cf",
+            "7c44aa72f314ee8e634b31c394824611"
+        ],
+        "val": [
+            "7705424ddefb7be18d54b752ee30d089",
+            "9293a14920243f74dca99dde4303d8b4",
+            "a26d63de878b28fd52980f173b56924f",
+            "93357732c6306cb51673e1c313348a01",
+            "f3e467dba61ebb972a84c9dfab949065",
+            "12b494b1f89c06cf57b12b3e181ee3fd",
+            "8aeeed96e4597ca6853c6f214c15e60f",
+            "6f793e0f29f6b0b4da82e7357e8ee170",
+            "3bfa196d1b48f1e0c5dccef20baf829a",
+            "34080e679c1ae08aca92a4cdad802b45"
+        ]
+    },
+    {
+        "taxonomy_id": "03001627",
+        "taxonomy_name": "chair",
+        "test": [
+            "ddfe96c6ec86b8752cbb5ed9636a4451",
+            "e8ef93ed45300501bfddc5b20c9212b4",
+            "6b32d3a9198f8b03d1dcc55e36186e4e",
+            "5539a4a9f2f1b45f3eec26c23f5bc80b",
+            "d764960666572084b1ea4e06e88051f3",
+            "27c00ec2b6ec279958e80128fd34c2b1",
+            "4344509d0442364d3f9d6e0ade5188b0",
+            "9bda786a525b1ef93a11565e5be9cf53",
+            "d2c93dac1e088b092561e050fe719ba",
+            "faef9e4cff5fa61987be36ce60737655"
+        ],
+        "train": [
+            "a65534c7545a4b3a19fb4103277a6b93",
+            "fbca73a2c226a86a593a4d04856c4691",
+            "6f04104e178fb858f7628281ecb18112",
+            "7ff1b0ac88baea05dbbc9440457e303e",
+            "3ab838f55e56426b35836c728d324152",
+            "ee8208e26cffa9f8ba208e534614d8c0",
+            "9e0a1e2857b13b5853353c404519f02f",
+            "3c4ed9c8f76c7a5ef51f77a6d7299806",
+            "43f762270b438fe618a36258eabc2b9c"
+        ],
+        "val": [
+            "e9c99b6af129c22cf91663a74ccd2338",
+            "10dc303144fe5d668d1b9a1d97e2846",
+            "e803b31e2185d0405784b22e1081a3e1",
+            "89dba482df6fd02732e2044f695909a",
+            "2ed8d45343a442097869557127addfc0",
+            "6986aa6ac96abebc71a782a4379556c7",
+            "5027bd5ab457e99068821642e9a54505"
+        ]
+    },
+    {
+        "taxonomy_id": "03636649",
+        "taxonomy_name": "lamp",
+        "test": [
+            "51b4f0fd600a7cdc580a266ffa083ba4",
+            "64fe64c30ac05282443f70ad172f4dd5",
+            "43deffcae6d595f3fcb8d8c6d4df8143",
+            "14656fe47266b0eb88e7662971dc736f",
+            "31768574bcddbdde60ad823977adaa23",
+            "50a3d09ac90370ec9c48f338871146f5",
+            "d54d7977d760f4c3bd16d4490a10a752",
+            "fe02f6594ed8b96ae85a3dc26b76b2ae"
+        ],
+        "train": [
+            "67b0ef08720310aa14f846b7e32e76c4",
+            "8937a2d361775c68aafd61baec633e88",
+            "b4b15a84b9067f94a75d03186a0409e2",
+            "4c757abf44253f8360ad823977adaa23",
+            "bde9b62e181cd4694fb315ce917a9ec2",
+            "120f940d4c32c48df51f77a6d7299806",
+            "2768a3ebfde6410dcdfc3ede082b8a07",
+            "18145f4b303c37f11c3739edd52fa3",
+            "6efc48bb9267c2ab4c6deb9ede0648df"
+        ],
+        "val": [
+            "79af7fbe587692a583768a4ac1607d73",
+            "ec449d7c89e84657cf66a9e192dbe265",
+            "71b7341f69f50e35e86c35c1c8efea2c",
+            "66111d2c7a23b0feb404555b84577afb",
+            "7b005e23eae2768eb08c032bedc99529",
+            "261cc5f20787f50cdbb57594c19a59cf",
+            "d0650b751034f567457ba044c28858b1",
+            "33d0e0731c771712eed9bc72790ab85e"
+        ]
+    },
+    {
+        "taxonomy_id": "04256520",
+        "taxonomy_name": "sofa",
+        "test": [
+            "7d4d8e65979c28c1f8d4231017d95f74",
+            "5a7b6de19865d1332c8896155b09445c",
+            "8aa7651cbe3651d64af957103f4767ac",
+            "ead2f0ef7103c963fc1f58a995f231d1",
+            "3420ef8b6b20595e1b7dbdf53d301715",
+            "f9f8f089be14d5b672b33dfe598bdd77",
+            "253ca4f655355b6f8bc1f8036e08e44",
+            "98e474a6bbaef456febad4f49b26ec52",
+            "1d9a26feeba782e3f91663a74ccd2338",
+            "360c1058f401dd27fbc060fd555478",
+            "c7f31b9900a1a7644785ad2feb797e"
+        ],
+        "train": [
+            "a65534c7545a4b3a19fb4103277a6b93",
+            "494fe53da65650b8c358765b76c296",
+            "83d48b9accecd4bae7200b78e3310827",
+            "81a032241031c2e5f97ef3b999ddb957",
+            "73f7237dd7ed9c1d593ebeeedbff73b",
+            "9b5b636b4b412d33d93768e7b9b1eabf",
+            "f693bb3178c80d7f1783a44a88d6274",
+            "389751629226a005cbde89e0c48a01bf",
+            "c1950e8c9869a7aa8dd711af5650bdcf",
+            "3cf0d27803acc8cf1290417619264ca9"
+        ],
+        "val": [
+            "4f7392168ffafb8aea91375557c834d7",
+            "899a328f7c0292c5998b2b87439f61bf",
+            "33eaa3a6a05575ab14038d588fd1342f",
+            "8efa91e2f3e2eaf7bdc82a7932cd806",
+            "781a7cb1d7f9347d7ec5a98b3b8c425f",
+            "d04a6f268f16bae7d472d3bb6a889c20",
+            "7a3dd8889b18cc80f51f77a6d7299806",
+            "79b544db8d95c3dbc1a25f36f85c3fd6",
+            "7140d5cf3fb0c528b43753a53e4593db"
+        ]
+    },
+    {
+        "taxonomy_id": "04379243",
+        "taxonomy_name": "table",
+        "test": [
+            "9eba16c76875225a2d69ef58c7c1b72c",
+            "bf2a153556edcdc96325dd85752d9221",
+            "894e095c7036c8411933ffef19678834",
+            "cd01fd75885d9f606ce1f91756352daf",
+            "7a488c92c601f83c821340ef6a9a830d",
+            "7b22287c9a2ad418b9deee229eae6efa",
+            "654d6b82543a863c3bd24f986301745",
+            "17e773bf0007544ce76bc197b3a3ffc0",
+            "161b5260bcc6f8fc9befe610bb4b9f25"
+        ],
+        "train": [
+            "2ab09f4db5f5e842bf595b60a303303",
+            "5b3b19203b5da49c310af74324aae27f",
+            "8d608e1a1a1f34adf4b6538438a0b930",
+            "8cc6cd529cbd74b5769cf9dd5d8f2768",
+            "4b9ccbb4884f12376a5e440d54e375dc",
+            "b658e507c84d6202610c2a68437007d6",
+            "73ea0e595fe794dced787bd949919203"
+        ],
+        "val": [
+            "2a0b5875dc999a7a29e047111bd79063",
+            "b97a0bc7e2213913ae96150e4aa362f9",
+            "a86969194537bd5a3a602af85160c9b5",
+            "cf63d0c639cf4d36da1aea1fe709296",
+            "5eba36c416524db2f42a90fe4baf4591",
+            "79fba03fadd8c00ef10b04ee8b1c6914",
+            "ead000700697a012310af74324aae27f",
+            "7aba44f7a5ca1fd9a35da04de92b0f11",
+            "525b2042bd4547fd7ef440dbce8c5be5"
+        ]
+    },
+    {
+        "taxonomy_id": "04530566",
+        "taxonomy_name": "watercraft",
+        "test": [
+            "3f6340ffdc0de35caba19ce79eba1cbe",
+            "9bdb0cf464f5c65956b5365bdce185d",
+            "5fd55e301007884c742bc8027e4951ae",
+            "63c241d90e86ddb5a70cfb3232f40c6",
+            "1a2f00c6886f14354d85fb76de815344",
+            "f8cf09473d99d5ebfb7214357e073eb7",
+            "528689641a6562e7bd7a55708242b1bb",
+            "54b6788d413eb45bf6b4f9d652536b82",
+            "e3206eef4da407e7c08fee43ebed0bfa",
+            "294644520ccc2ce27795dd28016933fc"
+        ],
+        "train": [
+            "bb601d5ded9bdc00746ffcbc44510229",
+            "1fe84ad7b78667e47428866500a95dd8",
+            "ad62a23a7de3965f94daa4565dd30535",
+            "99ccd811a0e3052634e1b4a71050e6de",
+            "57b1795508e5f9d19996f95a20b4c45a",
+            "3e97094bc123e370be7ca2216dc1576a",
+            "12e012fc28fc8d784de203ef6842ee61",
+            "7b568afff918289614621506c22882a0"
+        ],
+        "val": [
+            "f226832ef907984fd8d4a0e4fc199475",
+            "dcaf4238da8ef379106f24d0bacaba69",
+            "313aaf9d79105fea82fd5ed7e39258c7",
+            "2570f4db767fa046760fb52676c518d9",
+            "fc71778c7daf92e49786591d9b03a096",
+            "e64611b8f590d12d2ae6c39a82bec2c9"
+        ]
+    }
+]

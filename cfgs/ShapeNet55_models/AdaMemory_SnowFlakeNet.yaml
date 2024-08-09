@@ -1,0 +1,57 @@
+optimizer : {
+  type: Adam,
+  kwargs: {
+  lr : 0.001, 
+  weight_decay : 0
+}}
+
+scheduler: {
+  type: GradualWarmup,
+  kwargs_1: {
+    step_size: 50,
+    gamma : 0.5
+  },
+  kwargs_2: {
+    multiplier: 1,
+    total_epoch: 200,
+  }
+}
+
+dataset : {
+  train : { _base_: cfgs/dataset_configs/ShapeNet-55.yaml, 
+            others: {subset: 'train'}},
+  val : { _base_: cfgs/dataset_configs/ShapeNet-55.yaml, 
+            others: {subset: 'test'}},
+  test : { _base_: cfgs/dataset_configs/ShapeNet-55.yaml, 
+            others: {subset: 'test'}}}
+            
+model : {
+  NAME: YYXSnowFlakeNetMemoryV117, 
+  dim_feat: 512, 
+  num_pc: 256,  # Number of coarse queries to generate
+  num_p0: 512,  # Final number of selected coarse points
+  radius: 1, 
+  up_factors: [2, 2, 4],
+  class_num: 55,
+
+  encoder_config: {
+    embed_dim: 512,
+  },
+  
+  decoder_config: {
+    embed_dim: 512,
+  },
+
+  # memory bank related configuration
+  memory_size: 240,
+  not_similar_loss_num: 180,  # Used in get_compactness_loss; the number of low-similarity prototypes to be pulled away when pulling in the highest similarity prototype [default: 1]
+  memory_circle_loss_m: 0.25,
+  memory_circle_loss_gamma: 256,
+  key_sim_loss_param: 0.0001,  # Controls the parameter for circle loss between features [default: 0.01]
+
+  }
+total_bs : 40
+step_per_update: 1
+max_epoch : 600
+
+consider_metric: CDL2

@@ -1,0 +1,89 @@
+optimizer : {
+  type: AdamW,
+  kwargs: {
+  lr : 0.0001, 
+  weight_decay : 0.0005
+}}
+
+scheduler: {
+  type: LambdaLR,
+  kwargs: {
+  warmingup_e: 30,
+  decay_step: 21,
+  lr_decay: 0.9,
+  lowest_decay: 0.02  # min lr = lowest_decay * lr
+}}
+
+bnmscheduler: {
+  type: Lambda,
+  kwargs: {
+  warmingup_e: 30,
+  decay_step: 21,
+  bn_decay: 0.5,
+  bn_momentum: 0.9,
+  lowest_decay: 0.01
+}}
+
+dataset : {
+  train : { _base_: cfgs/dataset_configs/Projected_ShapeNet-34_noise_memory.yaml, 
+            others: {subset: 'train'}},
+  val : { _base_: cfgs/dataset_configs/Projected_ShapeNet-34_noise_memory.yaml, 
+            others: {subset: 'test'}},
+  test : { _base_: cfgs/dataset_configs/Projected_ShapeNet-Unseen21_noise_memory.yaml, 
+            others: {subset: 'test'}}}
+            
+model : {
+    NAME: AdaMemoryAdaPoinTr,
+    class_num: 55,
+    dataset: ps34,
+    linkpred: False,
+    sparse_loss_param: 1,  # Sparse loss weight [default: 1]
+    dense_loss_param: 1,  # Dense loss weight [default: 1]
+    orthogonal_constriant_loss_param: 0.01,  # Orthogonal matrix constraint loss [default: 0.01]
+    key_sim_loss_param: 1,
+    value_sim_loss_param: 1,
+
+    # semi-memory configuration
+    memory_eta: 0.5,
+
+    # memory bank configuration
+    memory_size: 440,
+    key_similar_size: 4,  # When updating the memory bank, select the top N vectors to calculate similarity
+    memory_circle_loss_m: 0.25,
+    memory_circle_loss_gamma: 256,
+
+    num_query: 512,
+    num_points: 8192,
+    center_num: [512, 256],
+    global_feature_dim: 1024, 
+    encoder_type: graph,
+    decoder_type: fc,
+    encoder_config: {
+      embed_dim: 384,
+      depth: 6,
+      num_heads: 6,
+      k: 8,
+      n_group: 2,
+      mlp_ratio: 2.,
+      block_style_list: ['attn-graph', 'attn', 'attn', 'attn', 'attn', 'attn'], 
+      combine_style: 'concat',
+    },
+    decoder_config: {
+      embed_dim: 384,
+      depth: 8,
+      num_heads: 6,
+      k: 8,
+      n_group: 2,
+      mlp_ratio: 2.,
+      self_attn_block_style_list: ['attn-graph', 'attn', 'attn', 'attn', 'attn', 'attn', 'attn', 'attn'], 
+      self_attn_combine_style: 'concat',
+      cross_attn_block_style_list: ['attn-graph', 'attn', 'attn', 'attn', 'attn', 'attn', 'attn', 'attn'], 
+      cross_attn_combine_style: 'concat',
+    }
+}
+  
+total_bs : 48
+step_per_update : 1
+max_epoch : 600
+
+consider_metric: CDL1
