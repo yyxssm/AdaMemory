@@ -62,8 +62,8 @@ python main_memory.py --test \
     --config <config> \
     --ckpts <path> \
     --keys 1 --values 1 \
-    [--mode <easy/median/hard> \
-    --exp_name <exp_name>]
+    [--mode <easy/median/hard>] \
+    [--exp_name <exp_name>]
 ```
 
 where the options "--keys 1 --values 1" do not have any actual meaning; they only serve as placeholders. To maintain the stability of the code and model structure, we need to input these two variables during the inference stage.
@@ -113,7 +113,7 @@ NNODES=2 NODE_RANK=0 PORT=<MASTER_PORT> MASTER_ADDR=<MASTER_ADDR> ./scripts/mult
 ```
 On the second machine:
 ```shell
-NNODES=2 NODE_RANK=0 PORT=<MASTER_PORT> MASTER_ADDR=<MASTER_ADDR> ./scripts/multi_machine_train_adamemory.sh <config> <gpus> <exp_name>
+NNODES=2 NODE_RANK=1 PORT=<MASTER_PORT> MASTER_ADDR=<MASTER_ADDR> ./scripts/multi_machine_train_adamemory.sh <config> <gpus> <exp_name>
 ```
 
 For example, if you have 2 machines, each with 4 GPUs.
