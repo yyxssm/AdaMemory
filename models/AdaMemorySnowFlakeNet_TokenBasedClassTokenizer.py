@@ -1,6 +1,7 @@
-#! /usr/bin/python3
-# -*- coding: utf-8 -*-
-# @Author: Peng Xiang
+##############################################################
+# % Author: Yuxiang Yan
+# % Date:2024/08/10
+###############################################################
 
 import torch
 import torch.nn as nn

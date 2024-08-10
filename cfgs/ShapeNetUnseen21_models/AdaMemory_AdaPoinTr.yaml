@@ -47,7 +47,7 @@ model : {
     memory_eta: 0.5,
 
     # Memory bank configuration
-    memory_size: 240,  # Needs to be a multiple of class_num
+    memory_size: 240,
     key_similar_size: 4,  # When updating the memory bank, the top N vectors to consider based on similarity
     memory_circle_loss_m: 0.25,
     memory_circle_loss_gamma: 256,

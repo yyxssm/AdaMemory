@@ -1,10 +1,6 @@
 ##############################################################
-# % Author: Castle
-# % Dara:12/11/2022
-# % Content:
-# Accelerate the block by pre-calculate knn idx
-# Support to choose Block component by config
-# Support Concatenation/OnebyOne for local and global Attn
+# % Author: Yuxiang Yan
+# % Date:2024/08/10
 ###############################################################
 
 import torch
