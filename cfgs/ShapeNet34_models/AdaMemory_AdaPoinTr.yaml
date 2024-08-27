@@ -41,16 +41,17 @@ model : {
     orthogonal_constriant_loss_param: 0.01,  # Orthogonal matrix constraint loss [default: 0.01]
     key_sim_loss_param: 0.0001,  # Parameter controlling the circle loss between features [default: 0.0001]
     value_sim_loss_param: 1,  # Parameter controlling the ReLU loss between memory and features
-    not_similar_loss_num: 250,  # For get_compactness_loss, number of low-similarity prototypes to push away while pulling the highest-similarity prototype closer [default: 1]
+    not_similar_loss_num: 100,  # For get_compactness_loss, number of low-similarity prototypes to push away while pulling the highest-similarity prototype closer [default: 1]
 
     # Semi-memory configuration
     memory_eta: 0.5,
 
     # Memory bank configuration
-    memory_size: 240,
+    memory_size: 150,
     key_similar_size: 4,  # When updating the memory bank, the top N vectors to consider based on similarity
     memory_circle_loss_m: 0.25,
     memory_circle_loss_gamma: 256,
+    class_constraint_param: 0.01,
 
     num_query: 512,
     num_points: 8192,

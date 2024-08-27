@@ -20,14 +20,14 @@ dataset : {
             others: {subset: 'test'}}}
             
 model : {
-  NAME: AdaMemoryPCN_shapenet34,
+  NAME: AdaMemoryPCN,
   num_pred: 8192,
   encoder_channel: 1024,
   
   # memory bank
   class_num: 34,
-  memory_size: 80,
-  not_similar_loss_num: 60,  # Used in get_compactness_loss: Specifies how many low-similarity prototypes to push away when pulling the most similar prototype closer [default: 1]
+  memory_size: 150,
+  not_similar_loss_num: 100,  # Used in get_compactness_loss: Specifies how many low-similarity prototypes to push away when pulling the most similar prototype closer [default: 1]
   memory_circle_loss_m: 0.25,
   memory_circle_loss_gamma: 96,
   key_sim_loss_param: 0.00001,  # Parameter to control the circle loss between features [default: 0.01]
@@ -39,11 +39,11 @@ model : {
   },
   
   decoder_config: {
-    embed_dim: 1024,
+    embed_dim: 256,
   },
     }
 total_bs : 120
 step_per_update : 1
-max_epoch : 600
+max_epoch : 300
 
 consider_metric: CDL2

@@ -1,7 +1,7 @@
 optimizer : {
   type: Adam,
   kwargs: {
-  lr : 0.001, 
+  lr : 0.0001, 
   weight_decay : 0
 }}
 
@@ -22,7 +22,7 @@ dataset : {
             others: {subset: 'train'}},
   val : { _base_: cfgs/dataset_configs/Projected_ShapeNet-34_noise_memory.yaml, 
             others: {subset: 'test'}},
-  test : { _base_: cfgs/dataset_configs/Projected_ShapeNet-34_noise_memory.yaml, 
+  test : { _base_: cfgs/dataset_configs/Projected_ShapeNet-Unseen21_noise_memory.yaml, 
             others: {subset: 'test'}}}
             
 model : {

@@ -27,7 +27,7 @@ model : {
   
   # memory bank
   class_num: 55,
-  memory_size: 200,
+  memory_size: 250,
   not_similar_loss_num: 180,  # Used in get_compactness_loss: Specifies how many low-similarity prototypes to push away when pulling the most similar prototype closer [default: 1]
   memory_circle_loss_m: 0.25,
   memory_circle_loss_gamma: 256,
@@ -45,6 +45,6 @@ model : {
     }
 total_bs : 120
 step_per_update : 1
-max_epoch : 600
+max_epoch : 300
 
 consider_metric: CDL1

@@ -39,18 +39,19 @@ model : {
     sparse_loss_param: 1,  # Sparse loss weight [default: 1]
     dense_loss_param: 1,  # Dense loss weight [default: 1]
     orthogonal_constriant_loss_param: 0.01,  # Orthogonal matrix constraint loss [default: 0.01]
-    key_sim_loss_param: 1,
+    key_sim_loss_param: 0.0001,
     value_sim_loss_param: 1,
-    not_similar_loss_num: 250,  # Used in get_compactness_loss to determine how many low-similarity prototypes to push away when pulling the highest similarity prototype closer [default: 1]
+    not_similar_loss_num: 180,  # Used in get_compactness_loss to determine how many low-similarity prototypes to push away when pulling the highest similarity prototype closer [default: 1]
 
     # semi-memory configuration
     memory_eta: 0.5,
 
     # memory bank configuration
-    memory_size: 240,
+    memory_size: 250,
     key_similar_size: 4,  # When updating the memory bank, select the top N vectors for similarity calculation
     memory_circle_loss_m: 0.25,
     memory_circle_loss_gamma: 256,
+    class_constraint_param: 0.01,
 
     num_query: 512,
     num_points: 8192,

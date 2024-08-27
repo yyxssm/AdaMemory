@@ -881,17 +881,11 @@ class PCTransformer(nn.Module):
         self.memory_size = config.get("memory_size", config.class_num)
         self.memory_per_class_num = self.memory_size // config.class_num
         
-        if self.config.get("dataset", None) == "s55" or self.config.get("dataset", None) == "ps34":
-            self.gating_alpha = nn.Parameter(torch.randn(1))
-            self.gating_beta = nn.Parameter(torch.randn(1))
-            self.keys = nn.Parameter(torch.rand((self.memory_size, config.encoder_config.embed_dim)))
-            self.values = nn.Parameter(torch.rand((self.memory_size, config.decoder_config.embed_dim)).cuda())
-        else:
-            self.gating_alpha = nn.Parameter(torch.randn(1, self.memory_size))
-            self.gating_beta = nn.Parameter(torch.randn(1, self.memory_size))
-            self.encoder_embed_dim = config.encoder_config.embed_dim
-            self.decoder_embed_dim = config.decoder_config.embed_dim
-            self.memory_vector = nn.Parameter(torch.rand((self.memory_size, self.encoder_embed_dim + self.decoder_embed_dim)))
+        self.gating_alpha = nn.Parameter(torch.randn(1, self.memory_size))
+        self.gating_beta = nn.Parameter(torch.randn(1, self.memory_size))
+        self.encoder_embed_dim = config.encoder_config.embed_dim
+        self.decoder_embed_dim = config.decoder_config.embed_dim
+        self.memory_vector = nn.Parameter(torch.rand((self.memory_size, self.encoder_embed_dim + self.decoder_embed_dim)))
         
         self.memory_query_mlp = MLP_CONV(in_channel=config.encoder_config.embed_dim, layer_dims=[384, config.encoder_config.embed_dim])
         self.memory_key_mlp = MLP_CONV(in_channel=config.encoder_config.embed_dim, layer_dims=[384, config.encoder_config.embed_dim])
@@ -940,25 +934,15 @@ class PCTransformer(nn.Module):
             gt_points_token = torch.max(f, dim=1)[0]
             input_dict["gt_points_token"] = gt_points_token
 
-            if self.config.get("dataset", None) == "s55" or self.config.get("dataset", None) == "ps34":
-                input_dict["keys"] = self.keys
-                input_dict["values"] = self.values
-                keys_reparam = self.keys
-                values_reparam = self.values
-            else:
-                input_dict["keys"] = self.memory_vector[:, :self.encoder_embed_dim]
-                input_dict["values"] = self.memory_vector[:, -self.decoder_embed_dim:]
-                input_dict["memory_vector"] = self.memory_vector
+            input_dict["keys"] = self.memory_vector[:, :self.encoder_embed_dim]
+            input_dict["values"] = self.memory_vector[:, -self.decoder_embed_dim:]
+            input_dict["memory_vector"] = self.memory_vector
 
-                keys_reparam = self.memory_vector[:, :self.encoder_embed_dim]
-                values_reparam = self.memory_vector[:, -self.decoder_embed_dim:]
+            keys_reparam = self.memory_vector[:, :self.encoder_embed_dim]
+            values_reparam = self.memory_vector[:, -self.decoder_embed_dim:]
         else:
-            if self.config.get("dataset", None) == "s55" or self.config.get("dataset", None) == "ps34":
-                keys_reparam = self.keys
-                values_reparam = self.values
-            else:
-                keys_reparam = self.memory_vector[:, :self.encoder_embed_dim]
-                values_reparam = self.memory_vector[:, -self.decoder_embed_dim:]
+            keys_reparam = self.memory_vector[:, :self.encoder_embed_dim]
+            values_reparam = self.memory_vector[:, -self.decoder_embed_dim:]
 
         memory_q = self.memory_query_mlp(encoder_cls_token.transpose(1, 2)).squeeze(2)
         memory_k = self.memory_key_mlp(keys_reparam.unsqueeze(2)).squeeze(2)

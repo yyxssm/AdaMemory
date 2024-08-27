@@ -1,7 +1,7 @@
 optimizer : {
   type: Adam,
   kwargs: {
-  lr : 0.001, 
+  lr : 0.0001, 
   weight_decay : 0
 }}
 
@@ -45,7 +45,7 @@ model : {
   },
 
   # memory bank
-  memory_size: 200,
+  memory_size: 250,
   not_similar_loss_num: 180,  # Used in get_compactness_loss: Specifies how many low-similarity prototypes to push away when pulling the most similar prototype closer [default: 1]
   memory_circle_loss_m: 0.25,
   memory_circle_loss_gamma: 256,

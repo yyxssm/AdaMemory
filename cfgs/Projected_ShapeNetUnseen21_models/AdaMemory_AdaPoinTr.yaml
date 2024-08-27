@@ -29,28 +29,29 @@ dataset : {
             others: {subset: 'train'}},
   val : { _base_: cfgs/dataset_configs/Projected_ShapeNet-34_noise_memory.yaml, 
             others: {subset: 'test'}},
-  test : { _base_: cfgs/dataset_configs/Projected_ShapeNet-34_noise_memory.yaml, 
+  test : { _base_: cfgs/dataset_configs/Projected_ShapeNet-Unseen21_noise_memory.yaml, 
             others: {subset: 'test'}}}
             
 model : {
     NAME: AdaMemoryAdaPoinTr,
-    class_num: 55,
-    dataset: ps34,
+    class_num: 34,
     linkpred: False,
     sparse_loss_param: 1,  # Sparse loss weight [default: 1]
     dense_loss_param: 1,  # Dense loss weight [default: 1]
     orthogonal_constriant_loss_param: 0.01,  # Orthogonal matrix constraint loss [default: 0.01]
-    key_sim_loss_param: 1,
+    key_sim_loss_param: 0.0001,
     value_sim_loss_param: 1,
+    not_similar_loss_num: 100,  # For get_compactness_loss, number of low-similarity prototypes to push away while pulling the highest-similarity prototype closer [default: 1]
 
     # semi-memory configuration
     memory_eta: 0.5,
 
     # memory bank configuration
-    memory_size: 440,
+    memory_size: 150,
     key_similar_size: 4,  # When updating the memory bank, select the top N vectors to calculate similarity
     memory_circle_loss_m: 0.25,
     memory_circle_loss_gamma: 256,
+    class_constraint_param: 0.01,
 
     num_query: 512,
     num_points: 8192,
