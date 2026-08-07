@@ -1,0 +1,12 @@
+from .build import build_model_from_cfg
+
+# Base modules used by the AdaMemory v2 main experiments.
+import models.AdaMemoryAdaPoinTr
+import models.AdaMemorySnowFlakeNet_TokenBasedClassTokenizer
+import models.FSCSVD
+
+# AdaMemory v2 label-free main models.
+import models.adapointr_adamemory_label_free_token_query_v1_0
+import models.pcn_adamemory_label_free_meanstd_query_v1_0
+import models.snowflakenet_adamemory_label_free_token_query_v1_0
+import models.fsc_adamemory_label_free_token_query_v1_0

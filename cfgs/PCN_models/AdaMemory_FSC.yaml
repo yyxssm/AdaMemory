@@ -1,0 +1,56 @@
+# PCN: FSC + AdaMemory without category labels or a classification task.
+optimizer: {
+  type: Adam,
+  kwargs: {lr: 0.0001, weight_decay: 0, betas: [0.9, 0.999]}
+}
+scheduler: {
+  type: MultiStepLR_GradualWarmup,
+  LR_DECAY_STEP: [40, 80, 120, 160, 200, 240, 280, 320, 360],
+  GAMMA: 0.7,
+  WARMUP_STEPS: 300
+}
+
+dataset: {
+  train: {_base_: cfgs/dataset_configs/PCN_memory.yaml,
+          others: {subset: 'train'}},
+  val: {_base_: cfgs/dataset_configs/PCN_memory.yaml,
+        others: {subset: 'test'}},
+  test: {_base_: cfgs/dataset_configs/PCN_memory.yaml,
+         others: {subset: 'test'}}
+}
+
+model: {
+  NAME: FSCSVDAdaMemoryLabelFreeTokenQueryV1,
+  TEST_DATASET: PCN,
+  step1: 4,
+  step2: 8,
+  merge_points: 512,
+  local_points: 64,
+
+  # Project FSC's native 1024-D seeds to the paper's 256-D query/key width.
+  class_tokenizer: {
+    token_dim: 256,
+    depth: 1,
+    num_heads: 8,
+    dim_feedforward: 1024,
+    drop_rate: 0.0
+  },
+
+  label_free_training: true,
+  strict_memory_loss: true,
+  memory_size: 32,
+  memory_projection_hidden_dim: 384,
+  memory_circle_loss_m: 0.25,
+  memory_circle_loss_gamma: 256,
+  cluster_loss_weight: 0.0001,
+  scatter_loss_weight: 1.0,
+  scatter_reduction: mean,
+  gating_eps: 0.0000000001,
+  gating_temperature: 1.0
+}
+
+# With merge_points=512, step1=4, and step2=8, FSC outputs 16384 points.
+total_bs: 4
+step_per_update: 1
+max_epoch: 400
+consider_metric: CDL1

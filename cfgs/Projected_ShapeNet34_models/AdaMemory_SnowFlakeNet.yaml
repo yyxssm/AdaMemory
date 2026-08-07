@@ -1,0 +1,63 @@
+# Projected-ShapeNet-34 seen split: label-free SnowflakeNet token query.
+optimizer: {
+  type: AdamW,
+  kwargs: {lr: 0.0004, weight_decay: 0.0005}
+}
+
+scheduler: {
+  type: LambdaLR,
+  kwargs: {
+    warmingup_e: 30,
+    decay_step: 21,
+    lr_decay: 0.9,
+    lowest_decay: 0.02
+  }
+}
+
+bnmscheduler: {
+  type: Lambda,
+  kwargs: {
+    warmingup_e: 30,
+    decay_step: 21,
+    bn_decay: 0.5,
+    bn_momentum: 0.9,
+    lowest_decay: 0.01
+  }
+}
+
+dataset: {
+  train: {_base_: cfgs/dataset_configs/Projected_ShapeNet-34_noise.yaml,
+          others: {subset: 'train'}},
+  val: {_base_: cfgs/dataset_configs/Projected_ShapeNet-34_noise.yaml,
+        others: {subset: 'test'}},
+  test: {_base_: cfgs/dataset_configs/Projected_ShapeNet-34_noise.yaml,
+         others: {subset: 'test'}}
+}
+
+model: {
+  NAME: SnowFlakeNetAdaMemoryLabelFreeTokenQueryV1,
+  dim_feat: 512,
+  num_pc: 256,
+  num_p0: 512,
+  radius: 1,
+  num_points: 8192,
+  up_factors: [2, 2, 4],
+
+  label_free_training: true,
+  strict_memory_loss: true,
+  memory_size: 150,
+  evaluation_class_count: 34,
+  not_similar_loss_num: 100,
+  key_sim_loss_param: 0.0001,
+  value_sim_loss_param: 1.0,
+  get_sim_seperation_loss_param: 1.0,
+  memory_circle_loss_m: 0.25,
+  memory_circle_loss_gamma: 256,
+  encoder_config: {embed_dim: 512},
+  decoder_config: {embed_dim: 512}
+}
+
+total_bs: 64
+step_per_update: 1
+max_epoch: 600
+consider_metric: CDL1
